@@ -1,0 +1,5 @@
+public/videos/narrativa1.mp4
+public/videos/narrativa2.mp4
+node_modules
+dist
+.env
