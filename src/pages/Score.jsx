@@ -5,7 +5,7 @@ export default function Score() {
   const navigate = useNavigate();
   const finalScore = location.state?.score || 0;
 
-  const bgGame = `${import.meta.env.BASE_URL}background_game.png`;
+  const bgGame = `${import.meta.env.BASE_URL}background3.png`;
 
   return (
     <div

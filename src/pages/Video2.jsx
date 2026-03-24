@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Video2() {
-  const bgGame = `${import.meta.env.BASE_URL}background_game.png`;
+  const bgGame = `${import.meta.env.BASE_URL}background3.png`;
 
   return (
     <div

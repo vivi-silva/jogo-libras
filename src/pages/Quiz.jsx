@@ -89,7 +89,7 @@ export default function Quiz() {
   const navigate = useNavigate();
 
   const currentQuestion = questions.find((q) => q.id === selected);
-  const bgGame = `${base}background_game.png`;
+  const bgGame = `${base}background3.png`;
 
   const handleAnswer = (choice) => {
     if (!currentQuestion || locked || !videoFinished) return;
