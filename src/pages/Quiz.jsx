@@ -1,80 +1,81 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+const base = import.meta.env.BASE_URL;
+
 const questions = [
   {
     id: 1,
-    video: "/videos/pergunta1.mp4",
+    video: `${base}videos/pergunta1.mp4`,
     correct: "William Stokoe",
     options: ["Marlee Matlin", "Nellie Zabel Willhite", "Anne Sullivan", "William Stokoe"]
   },
   {
     id: 2,
-    video: "/videos/pergunta2.mp4",
+    video: `${base}videos/pergunta2.mp4`,
     correct: "Thomas Gallaudet",
     options: ["Juan Bonet", "Thomas Gallaudet", "Pedro Ponce de Leon", "Marlee Matlin"]
   },
   {
     id: 3,
-    video: "/videos/pergunta3.mp4",
+    video: `${base}videos/pergunta3.mp4`,
     correct: "Pedro Ponce de Leon",
     options: ["Laura Redden Searing", "Pedro Ponce de Leon", "Thomas Gallaudet", "Charles de L'Epee"]
   },
   {
     id: 4,
-    video: "/videos/pergunta4.mp4",
+    video: `${base}videos/pergunta4.mp4`,
     correct: "Nellie Zabel Willhite",
     options: ["Nellie Zabel Willhite", "Laura Redden Searing", "Hellen Keller", "Anne Sullivan"]
   },
   {
     id: 5,
-    video: "/videos/pergunta5.mp4",
+    video: `${base}videos/pergunta5.mp4`,
     correct: "Marlee Matlin",
     options: ["Anne Sullivan", "Laurent Clerc", "Nellie Zabel Willhite", "Marlee Matlin"]
   },
   {
     id: 6,
-    video: "/videos/pergunta6.mp4",
+    video: `${base}videos/pergunta6.mp4`,
     correct: "Laurent Clerc",
     options: ["Agatha tiegel hanson", "Laurent Clerc", "Charles de L'Epee", "Thomas Gallaudet"]
   },
   {
     id: 7,
-    video: "/videos/pergunta7.mp4",
+    video: `${base}videos/pergunta7.mp4`,
     correct: "Anne Sullivan",
     options: ["Anne Sullivan", "Laurent Clerc", "Marlee Matlin", "Ernest Huet"]
   },
   {
     id: 8,
-    video: "/videos/pergunta8.mp4",
+    video: `${base}videos/pergunta8.mp4`,
     correct: "Hellen Keller",
     options: ["Ernest Huet", "Agatha tiegel hanson", "Hellen Keller", "Marlee Matlin"]
   },
   {
     id: 9,
-    video: "/videos/pergunta9.mp4",
+    video: `${base}videos/pergunta9.mp4`,
     correct: "Ernest Huet",
     options: ["Charles de L'Epee", "Ernest Huet", "Laura Redden Searing", "Agatha tiegel hanson"]
   },
   {
     id: 10,
-    video: "/videos/pergunta10.mp4",
+    video: `${base}videos/pergunta10.mp4`,
     correct: "Charles de L'Epee",
     options: ["Juan Bonet", "Hellen Keller", "Anne Sullivan", "Charles de L'Epee"]
   },
   {
     id: 11,
-    video: "/videos/pergunta11.mp4",
+    video: `${base}videos/pergunta11.mp4`,
     correct: "Julia Brace",
     options: ["Julia Brace", "Laura Redden Searing", "Ernest Huet", "Anne Sullivan"]
   },
   {
     id: 12,
-    video: "/videos/pergunta12.mp4",
+    video: `${base}videos/pergunta12.mp4`,
     correct: "Agatha tiegel hanson",
     options: ["Thomas Gallaudet", "Charles de L'Epee", "Agatha tiegel hanson", "Pedro Ponce de Leon"]
   },
-  
 ];
 
 export default function Quiz() {
@@ -88,6 +89,7 @@ export default function Quiz() {
   const navigate = useNavigate();
 
   const currentQuestion = questions.find((q) => q.id === selected);
+  const bgGame = `${base}background_game.png`;
 
   const handleAnswer = (choice) => {
     if (!currentQuestion || locked || !videoFinished) return;
@@ -123,7 +125,7 @@ export default function Quiz() {
     <div
       className="min-h-screen p-6 relative overflow-hidden"
       style={{
-        backgroundImage: "url('/background3.png')",
+        backgroundImage: `url('${bgGame}')`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -151,7 +153,7 @@ export default function Quiz() {
                   setSelected(q.id);
                   setFeedback("");
                   setLocked(!!answered[q.id]);
-                  setVideoFinished(false);
+                  setVideoFinished(!!answered[q.id]);
                 }}
                 className={`w-24 h-24 md:w-28 md:h-28 flex items-center justify-center rounded-2xl text-2xl font-bold shadow-lg transition-all duration-300 border
                   ${

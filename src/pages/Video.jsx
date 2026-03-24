@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 
 export default function Video() {
+  const bgGame = `${import.meta.env.BASE_URL}background_game.png`;
+
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden"
       style={{
-        backgroundImage: "url('/background_game.png')",
+        backgroundImage: `url('${bgGame}')`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
